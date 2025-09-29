@@ -13,8 +13,6 @@ def call(String dockerImage, String imageTag, String nexusCredentialsId, String 
                     docker-compose -f docker-compose.dev.yml up -d
                 elif [ "${environment}" = "staging" ]; then
                     docker-compose -f docker-compose.staging.yml up -d
-                else
-                    docker-compose -f docker-compose.prod.yml up -d
                 fi
             '''
         }
