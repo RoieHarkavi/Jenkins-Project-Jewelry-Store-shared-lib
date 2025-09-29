@@ -3,7 +3,7 @@ def call(String dockerImage, String imageTag, String nexusCredentialsId, String 
                                          usernameVariable: 'NEXUS_USER',
                                          passwordVariable: 'NEXUS_PASS')]) {
             sh '''
-                echo "$NEXUS_PASS" | docker login -u "$NEXUS_USER" --password-stdin nexus:8082
+                echo "$NEXUS_PASS" | docker login -u "$NEXUS_USER" --password-stdin http://nexus:8082
                 docker pull ${dockerImage}:${imageTag}
                 docker pull ${dockerImage}:latest
 
