@@ -5,7 +5,6 @@ def call(String dockerImage, String imageTag, String nexusCredentialsId, String 
             sh '''
                 echo "$NEXUS_PASS" | docker login -u "$NEXUS_USER" --password-stdin http://nexus:8082
                 docker pull ${dockerImage}:${imageTag}
-                docker pull ${dockerImage}:latest
 
                 if [ "${environment}" = "dev" ]; then
                     docker-compose -f docker-compose.dev.yml up -d
