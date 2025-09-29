@@ -1,6 +1,4 @@
 def call(String dockerImage, String imageTag, String nexusCredentialsId, String environment = 'dev') {
-    docker.image('roieharkavi/jewelry-agent3:latest')
-          .inside('--user root -v /var/run/docker.sock:/var/run/docker.sock') {
         withCredentials([usernamePassword(credentialsId: nexusCredentialsId,
                                          usernameVariable: 'NEXUS_USER',
                                          passwordVariable: 'NEXUS_PASS')]) {
@@ -17,4 +15,3 @@ def call(String dockerImage, String imageTag, String nexusCredentialsId, String 
             '''
         }
     }
-}
